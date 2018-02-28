@@ -166,7 +166,7 @@ function init() {
 	var host = document.location.host;
 
 	var ws_addr = 'ws://' + "192.168.1.45" + ':1234';
-	g_WS = new WebSocket(ws_addr);
+	g_WS = {}; new WebSocket(ws_addr);
 
 	g_WS.onopen = function(e) {
 		wsBool = true;

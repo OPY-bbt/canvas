@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+html,body {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: none;
+    touch-action: none
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%
+}
+
+@font-face {
+    font-family: 'open_sans_condensedbold';
+    font-weight: normal;
+    font-style: normal;
+    src: url('./fonts/opensanscondensed_bold/OpenSans-CondBold-webfont.eot');
+    src: url('./fonts/opensanscondensed_bold/OpenSans-CondBold-webfont.eot?#iefix') format('embedded-opentype'),url('./fonts/opensanscondensed_bold/OpenSans-CondBold-webfont.woff') format('woff'),url('./fonts/opensanscondensed_bold/OpenSans-CondBold-webfont.ttf') format('truetype'),url('./fonts/opensanscondensed_bold/OpenSans-CondBold-webfont.svg#open_sans_condensedbold') format('svg')
+}
+
+@font-face {
+    font-family: 'open_sansbold';
+    font-weight: normal;
+    font-style: normal;
+    src: url('./fonts/opensans_bold/OpenSans-Bold-webfont.eot');
+    src: url('./fonts/opensans_bold/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),url('./fonts/opensans_bold/OpenSans-Bold-webfont.woff') format('woff'),url('./fonts/opensans_bold/OpenSans-Bold-webfont.ttf') format('truetype'),url('./fonts/opensans_bold/OpenSans-Bold-webfont.svg#open_sansbold') format('svg')
+}
+
+input[type=radio] {
+    margin-right: 4px;
+    margin-left: 4px;
+    width: 18px;
+    height: 18px
+}
+
+#DIM_CAPTURE,.DIM_CAPTURE {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    color: #f9f9f9;
+    text-shadow: 4px 4px #111;
+    font-family: "open_sans_condensedbold";
+    font-size: 9mm
+}
+
+.DIM_DIALOG,.DIM_DIALOG_PHONE {
+    position: absolute;
+    z-index: 3000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    text-align: center;
+    color: #f9f9f9;
+    text-shadow: 4px 4px #111;
+    font-family: "open_sans_condensedbold";
+    font-size: 6mm
+}
+
+.DIM_DIALOG div,.DIM_DIALOG_PHONE div {
+    z-index: 1000;
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+
+.DIM_DIALOG div div,.DIM_DIALOG_PHONE div div {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.DIM_DIALOG_PHONE {
+    font-size: 3.5mm
+}
+
+#audio {
+    display: none;
+    position: absolute;
+    z-index: 2000;
+    bottom: 36px;
+    right: 5px;
+    width: auto;
+    height: auto;
+    background-color: rgba(0,0,0,0)
+}
+
+#PORTRAIT_PAGE {
+    position: absolute;
+    z-index: 2000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0,0,0,1.0);
+    font-family: "Helvetica","Droid Sans","Lucida Grande","Roboto","Microsoft Sans Serif","Arial","sans serif","sans";
+    font-size: 10mm
+}
+
+#noConnectMessage {
+    position: absolute;
+    z-index: 20000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    text-shadow: -2px -2px #000;
+    font-family: "Helvetica","Droid Sans","Lucida Grande","Roboto","Microsoft Sans Serif","Arial","sans serif","sans";
+    font-size: 10mm
+}
+
+#noConnectMessage div {
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle
+}
+
+#noConnectMessage div div {
+    display: table-cell;
+    vertical-align: middle
+}
+
+#MSG_CONTAINER,#EDIT_CONTAINER,#CONF_CONTAINER,.MSG_CONTAINER, #EDIT_CONTAINER2{
+    position: absolute;
+    z-index: 1000;
+    top: 30%;
+    left: 50%;
+    width: auto;
+    min-width: 300px;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-transition: opacity 300ms ease-in;
+    -moz-transition: opacity 300ms ease-in;
+    -ms-transition: opacity 300ms ease-in;
+    -o-transition: opacity 300ms ease-in;
+    transition: opacity 300ms ease-in;
+    border: 0 solid;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 12px;
+    background-color: rgba(0,0,0,0.8)
+}
+
+#MSG_CONTAINER {
+    pointer-events: none;
+    opacity: 0
+}
+
+#EDIT_CONTAINER,#CONF_CONTAINER, #EDIT_CONTAINER2 {
+    display: none;
+    background-color: rgba(0,0,0,0.9)
+}
+
+#MSG_CONTAINER div,#EDIT_CONTAINER div,#CONF_CONTAINER div, #EDIT_CONTAINER2 div{
+    z-index: 1000;
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+
+#MSG_BODY,#EDIT_BODY,#CONF_BODY,#EDIT_BODY2{
+    display: table-cell;
+    vertical-align: middle;
+    color: #f9f9f9;
+    text-shadow: 2px 2px #222;
+    font-family: "open_sans_condensedbold";
+    font-size: 10mm
+}
+
+#MSG_BODY {
+    color: #f9f9f9;
+    text-shadow: 2px 2px #222;
+    font-family: "open_sans_condensedbold";
+    font-size: 10mm
+}
+
+#eb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 110px;
+    height: 31px;
+    text-align: center;
+    color: #f0f0f0;
+    border-width: 1px;
+    border-color: #000;
+    background: #444;
+    font: bold 14pt open_sans_condensedbold
+}
+
+#eb2 {
+    width: 160px;
+    height: 31px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    text-align: center;
+    color: #c4c4c4;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #777;
+    outline: 0;
+    background: #0e0f11;
+    font: bold 14pt open_sans_condensedbold;
+}
+
+#EDIT_OK,#EDIT_CANCEL,#CONF_OK,#CONF_CANCEL, #COVER, #DELETE, #CANCEL, #COVER, #APPLY{
+    width: 100px;
+    height: 30px;
+    color: #e8e8e8;
+    border: solid 1px #eee;
+    outline: 0;
+    text-align: center;
+    background: #14181d;
+    font: bold 14pt open_sans_condensedbold
+}
+
+.BTN {
+    width: 100px;
+    height: 36px;
+    color: #232323;
+    border: solid 1px #eee;
+    outline: 0;
+    text-align: center;
+    background: #d0cdd0;
+    text-shadow: 1px 1px #ddd;
+    font: bold 14pt open_sans_condensedbold
+}
+
+#CONF_OK,#EDIT_OK, #APPLY, #COVER, #DELETE, #CANCEL, #COVER, #APPLY{
+    border-color: #eee;
+    background: #14181d;
+}
+
+#CONF_CANCEL,#EDIT_CANCEL {
+    border-color: #eee;
+    background: #14181d
+}
+
+#CONF_LABEL,#EDIT_LABEL, #EDIT_LABEL2 {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 24px
+}

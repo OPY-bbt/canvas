@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WIFI-MIX</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="Cache-Control" content="private">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=no,target-densitydpi=device-dpi">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<link rel="stylesheet" href="./index.css">
+	<link rel="shortcut icon" href="./favicon.ico">
+	<script src="./src/lang.js"></script>
+	<script src="./src/font.js"></script>
+	<script src="./src/color.js"></script>
+	<script src="./src/utils/lodash.js"></script>
+	<script src="./src/utils/utils.js"></script>
+	<script src="./src/utils/prototype.js"></script>
+	<script src="./src/utils/fastclick.js"></script>
+</head>
+<body>
+	<canvas id="canvas">Your browser does not support HTML5 Canvas.</canvas>
+	<div id="MSG_CONTAINER">
+	    <div>
+	        <span id="MSG_BODY">
+	            POPUP<br>MESSAGE
+	        </span>
+	    </div>
+	</div>
+	<div id="EDIT_CONTAINER">
+  <div>
+   <span id="EDIT_BODY">
+    <span id="DELAY_TIME" style="font-size: 16pt; display: none;">
+        <input type="radio" name="unit" value="ms" checked><span id="span_ms">ms2</span>
+        <input type="radio" name="unit" value="meters"><span id="span_mt">meters2</span>
+        <input type="radio" name="unit" value="ft"><span id="span_ft">ft2</span>
+        <input type="radio" name="unit" value="smpl"><span id="span_smp">samples2</span>
+        <br>
+    </span>
+    <input type="text" id="eb2" name="editbox" maxlength="20"><br>
+    <span id="EDIT_LABEL">Input value:</span><br>
+    <input type="submit" value="OK" id="EDIT_OK">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="submit" value="CANCEL" id="EDIT_CANCEL">
+   </span>
+  </div>
+	</div>
+	<div id="EDIT_CONTAINER2">
+		<div>
+				<span id="EDIT_BODY2">
+					<span id="EDIT_LABEL2">TARGET</span><br>
+					<input type="submit" value="APPLY" id="APPLY" />
+    	<input type="submit" value="COVER" id="COVER" />
+    	<input type="submit" value="DELETE" id="DELETE" />
+    	<input type="submit" value="CANCEL" id="CANCEL" />
+				</span>
+		</div>
+	</div>
+	<div id="DIM_CAPTURE"></div>
+	<script src="./src/Widget.js"></script>
+	<script src="./src/index.js"></script>
+	<script>
+		if ('addEventListener' in document) {
+    window.addEventListener('load', function() {
+      FastClick.attach(document.body);
+    }, false);
+
+    window.addEventListener("orientationchange", function() {
+      // 宣布新方向的数值
+      window.location.reload();
+    }, false);
+
+    document.body.addEventListener('touchstart', function () { }); 
+  }
+	</script>
+</body>
+</html>
